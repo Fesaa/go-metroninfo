@@ -50,9 +50,9 @@ type Resource struct {
 }
 
 type Publisher struct {
-	ID      string   `xml:"id,attr"`
-	Name    string   `xml:"Name"`
-	Imprint Resource `xml:"Imprint"`
+	ID      string   `xml:"id,attr,omitempty"`
+	Name    string   `xml:"Name,omitempty"`
+	Imprint Resource `xml:"Imprint,omitempty"`
 }
 
 type AlternativeName struct {
