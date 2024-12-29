@@ -6,17 +6,17 @@ var xmlHeader = []byte(`<?xml version="1.0" encoding="UTF-8"?>`)
 
 type MetronInfo struct {
 	IDS             IDS        `xml:"IDS,omitempty"`
-	Publisher       Publisher  `xml:"Publisher,omitempty"`
+	Publisher       *Publisher `xml:"Publisher,omitempty"`
 	Series          Series     `xml:"Series"`
 	MangaVolume     string     `xml:"MangaVolume,omitempty"`
 	CollectionTitle string     `xml:"CollectionTitle,omitempty"`
 	Number          string     `xml:"Number,omitempty"`
 	Stories         Stories    `xml:"Stories,omitempty"`
 	Summary         string     `xml:"Summary,omitempty"`
-	Notes           string     `json:"Notes,omitempty"`
+	Notes           string     `xml:"Notes,omitempty"`
 	Prices          Prices     `xml:"Prices,omitempty"`
-	CoverDate       Date       `xml:"CoverDate,omitempty"`
-	StoreDate       Date       `xml:"StoreDate,omitempty"`
+	CoverDate       *Date      `xml:"CoverDate,omitempty"`
+	StoreDate       *Date      `xml:"StoreDate,omitempty"`
 	PageCount       uint       `xml:"PageCount,omitempty"`
 	Genres          Genres     `xml:"Genres,omitempty"`
 	Tags            Tags       `xml:"Tags,omitempty"`
@@ -25,12 +25,12 @@ type MetronInfo struct {
 	Teams           Teams      `xml:"Teams,omitempty"`
 	Universes       Universes  `xml:"Universes,omitempty"`
 	Locations       Locations  `xml:"Locations,omitempty"`
-	GTIN            GTIN       `xml:"GTIN,omitempty"`
+	GTIN            *GTIN      `xml:"GTIN,omitempty"`
 	AgeRating       AgeRating  `xml:"AgeRating,omitempty"`
 	Reprints        Reprints   `xml:"Reprints,omitempty"`
 	URLs            URLs       `xml:"URLs,omitempty"`
 	Credits         Credits    `xml:"Credits,omitempty"`
-	LastModified    time.Time  `xml:"LastModified,omitempty"`
+	LastModified    *time.Time `xml:"LastModified,omitempty"`
 
 	// Internal
 	//XmlnsXsd string `xml:"xmlns:xsd,attr"`
@@ -51,7 +51,7 @@ type Resource struct {
 
 type Publisher struct {
 	ID      string   `xml:"id,attr,omitempty"`
-	Name    string   `xml:"Name,omitempty"`
+	Name    string   `xml:"Name"`
 	Imprint Resource `xml:"Imprint,omitempty"`
 }
 
@@ -62,17 +62,17 @@ type AlternativeName struct {
 }
 
 type Series struct {
-	ID   string       `xml:"id,attr"`
-	Lang LanguageCode `xml:"lang,attr"`
+	ID   string       `xml:"id,attr,omitempty"`
+	Lang LanguageCode `xml:"lang,attr,omitempty"`
 
 	Name             string           `xml:"Name"`
-	SortName         string           `xml:"SortName"`
-	Volume           uint             `xml:"Volume"`
-	Format           Format           `xml:"Format"`
-	StartYear        int              `xml:"StartYear"`
-	IssueCount       uint             `xml:"IssueCount"`
-	VolumeCount      uint             `xml:"VolumeCount"`
-	AlternativeNames AlternativeNames `xml:"AlternativeNames"`
+	SortName         string           `xml:"SortName,omitempty"`
+	Volume           uint             `xml:"Volume,omitempty"`
+	Format           Format           `xml:"Format,omitempty"`
+	StartYear        int              `xml:"StartYear,omitempty"`
+	IssueCount       uint             `xml:"IssueCount,omitempty"`
+	VolumeCount      uint             `xml:"VolumeCount,omitempty"`
+	AlternativeNames AlternativeNames `xml:"AlternativeNames,omitempty"`
 }
 
 type Price struct {
