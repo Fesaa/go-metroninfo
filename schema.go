@@ -39,9 +39,9 @@ type MetronInfo struct {
 }
 
 type ID struct {
-	Source  string `xml:"source,attr,omitempty"`
-	Primary bool   `xml:"primary,attr,omitempty"`
-	Value   string `xml:",chardata"`
+	Source  InformationSource `xml:"source,attr,omitempty"`
+	Primary bool              `xml:"primary,attr,omitempty"`
+	Value   string            `xml:",chardata"`
 }
 
 type Resource struct {
