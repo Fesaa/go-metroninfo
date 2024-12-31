@@ -17,7 +17,7 @@ type MetronInfo struct {
 	Prices          Prices     `xml:"Prices,omitempty"`
 	CoverDate       *Date      `xml:"CoverDate,omitempty"`
 	StoreDate       *Date      `xml:"StoreDate,omitempty"`
-	PageCount       uint       `xml:"PageCount,omitempty"`
+	PageCount       int        `xml:"PageCount,omitempty"`
 	Genres          Genres     `xml:"Genres,omitempty"`
 	Tags            Tags       `xml:"Tags,omitempty"`
 	Arcs            Arcs       `xml:"Arcs,omitempty"`
@@ -67,11 +67,11 @@ type Series struct {
 
 	Name             string           `xml:"Name"`
 	SortName         string           `xml:"SortName,omitempty"`
-	Volume           uint             `xml:"Volume,omitempty"`
+	Volume           int              `xml:"Volume,omitempty"`
 	Format           Format           `xml:"Format,omitempty"`
 	StartYear        int              `xml:"StartYear,omitempty"`
-	IssueCount       uint             `xml:"IssueCount,omitempty"`
-	VolumeCount      uint             `xml:"VolumeCount,omitempty"`
+	IssueCount       int              `xml:"IssueCount,omitempty"`
+	VolumeCount      int              `xml:"VolumeCount,omitempty"`
 	AlternativeNames AlternativeNames `xml:"AlternativeNames,omitempty"`
 }
 
@@ -94,7 +94,7 @@ type Universe struct {
 type Arc struct {
 	ID     string `xml:"id,attr,omitempty"`
 	Name   string `xml:"Name"`
-	Number uint   `xml:"Number,omitempty"`
+	Number int    `xml:"Number,omitempty"`
 }
 
 type GTIN struct {
